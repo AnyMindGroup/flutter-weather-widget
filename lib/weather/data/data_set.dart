@@ -25,13 +25,13 @@ class Weather {
       this.location});
 }
 
-Weather currentTemp = Weather(
-    current: 21,
-    max: 20,
-    min: 17,
-    image: "assets/sunny.png",
-    name: "Sunny",
-    day: "Monday, 17 May",
-    wind: 13,
-    humidity: 24,
-    location: "Tokyo, Japan");
+// Weather currentTemp = Weather(
+//     current: 21,
+//     max: 20,
+//     min: 17,
+//     image: "assets/sunny.png",
+//     name: "Sunny",
+//     day: "Monday, 17 May",
+//     wind: 13,
+//     humidity: 24,
+//     location: "Tokyo, Japan");
