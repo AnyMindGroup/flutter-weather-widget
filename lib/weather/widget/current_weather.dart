@@ -46,7 +46,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                       border: Border.all(width: 0.5, color: Colors.white),
                       borderRadius: BorderRadius.circular(30)),
                   child: const Text(
-                    "Updating",
+                    "Updated",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
