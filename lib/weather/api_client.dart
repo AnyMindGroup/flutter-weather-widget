@@ -30,11 +30,44 @@ class WeatherApiClient {
           humidity: main["humidity"]?.round() ?? 0,
           chanceRain: 0,
           location: city,
-          image: "assets/sunny.png"
-          // image: findIcon(current["weather"][0]["main"].toString(), true)
+          image: findIcon(res["weather"][0]["main"].toString(), true)
           );
       return [currentTemp];
     }
     return [null];
+  }
+
+  String findIcon(String name, bool type) {
+    if (type) {
+      switch (name) {
+        case "Clouds":
+          return "assets/sunny.png";
+        case "Rain":
+          return "assets/rainy.png";
+        case "Drizzle":
+          return "assets/rainy.png";
+        case "Thunderstorm":
+          return "assets/thunder.png";
+        case "Snow":
+          return "assets/snow.png";
+        default:
+          return "assets/sunny.png";
+      }
+    } else {
+      switch (name) {
+        case "Clouds":
+          return "assets/sunny_2d.png";
+        case "Rain":
+          return "assets/rainy_2d.png";
+        case "Drizzle":
+          return "assets/rainy_2d.png";
+        case "Thunderstorm":
+          return "assets/thunder_2d.png";
+        case "Snow":
+          return "assets/snow_2d.png";
+        default:
+          return "assets/sunny_2d.png";
+      }
+    }
   }
 }
