@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 
-import '../data/data_set.dart';
+import '../view/weather_view.dart';
 
-class CurrentWeather extends StatelessWidget {
-  const CurrentWeather({super.key});
+
+class CurrentWeather extends StatefulWidget {
+  const CurrentWeather(Function() getData, {super.key});
+
+  @override
+  _CurrentWeatherState createState() => _CurrentWeatherState();
+}
+
+class _CurrentWeatherState extends State<CurrentWeather> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class CurrentWeather extends StatelessWidget {
                   children: [
                     const Icon(Icons.pin_drop_outlined, color: Colors.white70),
                     Text(
-                      "   ${currentTemp.location!}",
+                      "   ${currentTemp!.location!}",
                       style: const TextStyle(
                           fontSize: 24,
                           color: Colors.white70),
@@ -58,7 +65,7 @@ class CurrentWeather extends StatelessWidget {
                   height: MediaQuery.of(context).size.width / 2.3,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(currentTemp.image!))),
+                          image: AssetImage(currentTemp!.image!))),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +82,7 @@ class CurrentWeather extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           GlowText(
-                            "${currentTemp.max}\u00B0",
+                            "${currentTemp!.current}\u00B0",
                             style: const TextStyle(
                                 fontSize: 80,
                                 fontWeight: FontWeight.bold,
@@ -85,7 +92,7 @@ class CurrentWeather extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "High: ${currentTemp.max}\u00B0 \u2022 Low: ${currentTemp.min}\u00B0",
+                      "High: ${currentTemp!.max}\u00B0 \u2022 Low: ${currentTemp!.min}\u00B0",
                       style:
                       const TextStyle(color: Colors.white70, fontSize: 16),
                     ),
@@ -93,7 +100,7 @@ class CurrentWeather extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      currentTemp.name!,
+                      currentTemp!.name!,
                       style: const TextStyle(
                           fontSize: 24,
                           color: Colors.white,
